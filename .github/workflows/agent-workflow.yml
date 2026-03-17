@@ -34,7 +34,7 @@ jobs:
       id: sonar-scan
       run: |
         mvn -B verify sonar:sonar \
-          -Dsonar.projectKey=testtraining_testtraining \
+          -Dsonar.projectKey=testtrainingss_testtraining \
           -Dsonar.organization=testtraining \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.token=$SONAR_TOKEN
@@ -42,7 +42,7 @@ jobs:
         # Download SonarCloud results
         sleep 30
         curl -u "$SONAR_TOKEN:" \
-          "https://sonarcloud.io/api/issues/search?componentKeys=testtraining_testtraining&resolved=false" \
+          "https://sonarcloud.io/api/issues/search?componentKeys=testtrainingss_testtraining&resolved=false" \
           -o sonar-results.json || echo '{"issues":[]}' > sonar-results.json
         
         echo "report-path=sonar-results.json" >> $GITHUB_OUTPUT
@@ -96,7 +96,7 @@ jobs:
         id: zap-scan
         uses: zaproxy/action-baseline@v0.14.0
         with:
-          target: 'http://testphp.vulnweb.com/'
+          target: 'http://testfire.net/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a -J zap-report.json'
       
