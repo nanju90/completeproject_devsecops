@@ -39,7 +39,7 @@ jobs:
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.token=$SONAR_TOKEN
         
-        # Download SonarCloud results
+        # Download SonarCloud results  
         sleep 30
         curl -u "$SONAR_TOKEN:" \
           "https://sonarcloud.io/api/issues/search?componentKeys=testtrainingss_testtraining&resolved=false" \
